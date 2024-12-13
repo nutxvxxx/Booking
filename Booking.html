@@ -120,7 +120,7 @@
     <div class="bg-gradient-to-r from-slate-900 to-slate-700 text-white p-10">
         <div class="max-w-md mx-auto">
             <h1 class="text-xl font-bold">จองคิว</h1>
-            <p class="text-sm">เวลาทำการเปิด 10:00-21:00 น.</p>
+            <p class="text-sm">เวลาทำการเปิด 10:00-17:00 น.</p>
         </div>
     </div>
     <div class="loading-overlay" id="loadingOverlay">
@@ -152,12 +152,12 @@
                 <div class="flex space-x-4 mb-4">
                     <span class="bg-white flex items-center border rounded-xl p-2 w-32">
                         <img src="https://img.icons8.com/?size=100&id=Ynh2i0jcHfB4&format=png&color=000000" class="w-6 h-6 mr-1">
-                        <span class="text-black"> ช่างตัดผม </span>
+                        <span class="text-black"> สาขา </span>
                     </span>
                     <select id="locationservice" name="locationservice"
                         class="rounded-xl text-center bg-white border text-gray-900 block flex-1 min-w-0 w-full"
-                        placeholder="ตัวเลือกช่าง">
-                        <option value="" disabled selected>เลือกช่าง</option>
+                        placeholder="ตัวเลือกสถานที่">
+                        <option value="" disabled selected>เลือกสาขา</option>
                     </select>
                 </div>
                 <!-- ฟอร์มข้อมูลผู้ใช้ -->
@@ -268,13 +268,11 @@
 
     <script>
 
-      
         // ตัวแปรสำหรับใช้กับ URL ของ Web App และ LIFF
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzRpvQURfJ1RGwe5osNaEHuVca0SOD5MK9AZU9GWMd8xtMwVDE6yO7rzJn4GrUcHH8Z/exec'; // appscripts booking
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwBOB12S9M3Uv44zd1fPx1QevHVC_Nve3chjhr9Gc3fcOn0E-wGR5DYMbnA8D0phK4/exec'; // appscripts booking
         const WEB_APP_MEMBER_URL = 'https://script.google.com/macros/s/AKfycbwJsqoW1dNKMpOs2XcylmIznejar-81L1pmtv7LbmZ3fBXeeye6kjpgZOcaMVSTORClKg/exec'; //appscripts members
         const LIFF_ID = '2006671110-xNoQNzqm';
 
-      
         
         let currentStep = 1; // เริ่มต้นที่ Step 1
         let selectedDate = '';
@@ -386,7 +384,7 @@
             }
 
             if (!locationservice) {
-                showPopup('ข้อผิดพลาด', 'กรุณาเลือกช่าง ก่อนดำเนินการต่อ', 'error');
+                showPopup('ข้อผิดพลาด', 'กรุณาเลือกสาขา ก่อนดำเนินการต่อ', 'error');
                 return;
             }
 
@@ -421,7 +419,7 @@
                 }
                 const data = await response.json();
                 populateDropdown('service', data.services, 'เลือกบริการ');
-                populateDropdown('locationservice', data.locationservice, 'เลือกช่าง');
+                populateDropdown('locationservice', data.locationservice, 'เลือกสาขา');
             } catch (error) {
                 console.error('There was a problem with the fetch operation:', error);
             }
