@@ -386,7 +386,7 @@
             }
 
             if (!locationservice) {
-                showPopup('ข้อผิดพลาด', 'กรุณาเลือกสาขา ก่อนดำเนินการต่อ', 'error');
+                showPopup('ข้อผิดพลาด', 'กรุณาเลือกช่าง ก่อนดำเนินการต่อ', 'error');
                 return;
             }
 
@@ -421,7 +421,7 @@
                 }
                 const data = await response.json();
                 populateDropdown('service', data.services, 'เลือกบริการ');
-                populateDropdown('locationservice', data.locationservice, 'เลือกสาขา');
+                populateDropdown('locationservice', data.locationservice, 'เลือกช่าง');
             } catch (error) {
                 console.error('There was a problem with the fetch operation:', error);
             }
